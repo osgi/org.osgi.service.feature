@@ -12,6 +12,36 @@
 	<artifactId>org.osgi.tck.service.feature</artifactId>
 	<packaging>pom</packaging>
 
+	<properties>
+		<asm-commons.version>5.0.3</asm-commons.version>
+		<asm.version>5.0.4</asm.version>
+		<assertj.version>3.23.1</assertj.version>
+		<awaitility.version>4.2.0</awaitility.version>
+		<byte-buddy.version>1.12.10</byte-buddy.version>
+		<geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
+		<hamcrest.version>2.2</hamcrest.version>
+		<johnzon-core.version>1.2.14</johnzon-core.version>
+		<junit-jupiter.version>5.12.2</junit-jupiter.version>
+		<junit-platform.version>1.12.2</junit-platform.version>
+		<mockito.version>4.6.1</mockito.version>
+		<objenesis.version>3.2</objenesis.version>
+		<opentest4j.version>1.3.0</opentest4j.version>
+		<org.apache.aries.spifly.dynamic.bundle.version>1.0.8</org.apache.aries.spifly.dynamic.bundle.version>
+		<org.apache.aries.util.version>1.1.3</org.apache.aries.util.version>
+		<org.apache.felix.cm.json.version>1.0.6</org.apache.felix.cm.json.version>
+		<org.apache.felix.feature.version>0.9.4-RC3</org.apache.felix.feature.version>
+		<org.eclipse.osgi.version>3.18.100</org.eclipse.osgi.version>
+		<org.json.version>1.0.0.v201011060100</org.json.version>
+		<org.osgi.framework.version>1.10.0</org.osgi.framework.version>
+		<org.osgi.namespace.service.version>1.0.0</org.osgi.namespace.service.version>
+		<org.osgi.resource.version>1.0.1</org.osgi.resource.version>
+		<org.osgi.service.log.version>1.5.0</org.osgi.service.log.version>
+		<osgi-test.version>1.2.0</osgi-test.version>
+		<servicemix-junit.version>4.13.2_1</servicemix-junit.version>
+		<org.osgi.util.converter.version>1.0.9</org.osgi.util.converter.version>
+		<org.osgi.util.function.version>1.0.0</org.osgi.util.function.version>
+	</properties>
+
 	<modules>
 		<module>org.osgi.test.cases.feature</module>
 		<module>org.osgi.test.run.feature</module>
