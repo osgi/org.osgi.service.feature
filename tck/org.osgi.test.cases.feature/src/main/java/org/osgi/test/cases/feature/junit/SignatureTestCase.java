@@ -19,6 +19,6 @@
 package org.osgi.test.cases.feature.junit;
 
 public class SignatureTestCase
-		extends org.osgi.test.support.signature.SignatureTestCase {
+		extends org.osgi.tck.signature.AbstractSignatureTest {
 	// concrete subclass
 }
