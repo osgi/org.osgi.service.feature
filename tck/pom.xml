@@ -19,7 +19,7 @@
 		<awaitility.version>4.3.0</awaitility.version>
 		<byte-buddy.version>1.12.10</byte-buddy.version>
 		<geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
-		<hamcrest.version>2.2</hamcrest.version>
+		<hamcrest.version>3.0</hamcrest.version>
 		<johnzon-core.version>1.2.14</johnzon-core.version>
 		<junit-jupiter.version>5.12.2</junit-jupiter.version>
 		<junit-platform.version>1.12.2</junit-platform.version>
