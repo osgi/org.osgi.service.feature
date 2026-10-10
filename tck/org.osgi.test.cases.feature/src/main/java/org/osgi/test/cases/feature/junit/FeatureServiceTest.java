@@ -1,7 +1,9 @@
 package org.osgi.test.cases.feature.junit;
 
 import static java.util.Collections.singletonMap;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.osgi.test.cases.feature.assertj.Assertions.assertThat;
 
 import java.io.IOException;
@@ -74,7 +76,6 @@ public class FeatureServiceTest {
 					.isNotNull()
 					.hasPid("foo")
 					.hasValuesThat()
-					.isNotNull()
 					.isEmpty();
 
 		}
@@ -90,7 +91,6 @@ public class FeatureServiceTest {
 					.hasPid("foo~bar")
 					.hasFactoryPid("foo")
 					.hasValuesThat()
-					.isNotNull()
 					.isEmpty();
 		}
 	}
@@ -129,7 +129,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadata_nullKey_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -141,7 +141,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadata_EmptyKey_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -153,7 +153,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadata_ComplexValue_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -166,7 +166,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_null_OK() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -179,7 +179,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_emptyKeyMap_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap("", ""))
@@ -193,7 +193,7 @@ public class FeatureServiceTest {
 		})
 		void addMetadataMap_idKeyMap_must_fail(String id) throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap(id, "foo"))
@@ -204,7 +204,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_ComplexValueMap_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap("foo", new BundleDTO()))
@@ -215,7 +215,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_nullkexMap_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap(null, "blah"))
@@ -229,7 +229,7 @@ public class FeatureServiceTest {
 		})
 		void addMetadata_id_must_fail(String id) throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(id, "value");
@@ -243,7 +243,7 @@ public class FeatureServiceTest {
 		})
 		void build_fail_when_metadata_id(String id) throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -288,7 +288,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadata_nullKey_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -300,7 +300,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadata_EmptyKey_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -312,7 +312,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadata_ComplexValue_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -325,7 +325,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_null_OK() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(null)
@@ -337,7 +337,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_emptyKeyMap_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap("", ""))
@@ -351,7 +351,7 @@ public class FeatureServiceTest {
 		})
 		void addMetadataMap_idKeyMap_must_fail(String id) throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap(id, "foo"))
@@ -362,7 +362,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_ComplexValueMap_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap("foo", new BundleDTO()))
@@ -373,7 +373,7 @@ public class FeatureServiceTest {
 		@Test
 		void addMetadataMap_nullkexMap_must_fail() throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(singletonMap(null, "blah"))
@@ -387,7 +387,7 @@ public class FeatureServiceTest {
 		})
 		void addMetadata_id_must_fail(String id) throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
@@ -402,7 +402,7 @@ public class FeatureServiceTest {
 		})
 		void build_fail_when_metadata_id(String id) throws Exception {
 
-			Assertions.assertThatThrownBy(() -> {
+			assertThatThrownBy(() -> {
 				fs.getBuilderFactory()
 						.newArtifactBuilder(fs.getID("g", "a", "v"))
 						.addMetadata(id, "value")
@@ -419,19 +419,17 @@ public class FeatureServiceTest {
 		class ReadFeatureIncompleteTest {
 			@Test
 			void null_shouldThrow() throws Exception {
-				assertThrows(Throwable.class, () -> fs.readFeature(null));
+				assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.readFeature(null));
 			}
 
 			@Test
 			void empty_shouldThrow() throws Exception {
-				assertThrows(Throwable.class,
-						() -> fs.readFeature(new StringReader("")));
+				assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.readFeature(new StringReader("")));
 			}
 
 			@Test
 			void incomplete_id_shouldThrow() throws Exception {
-				assertThrows(Throwable.class,
-						() -> fs.readFeature(new StringReader("")));
+				assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.readFeature(new StringReader("")));
 			}
 		}
 
@@ -461,8 +459,7 @@ public class FeatureServiceTest {
 
 				jsonWriter.object().key("id").value(valueID).endObject();
 
-				assertThrows(Throwable.class,
-						() -> fs.readFeature(new StringReader(sw.toString())));
+				assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.readFeature(new StringReader(sw.toString())));
 			}
 
 			@Test
@@ -639,7 +636,7 @@ public class FeatureServiceTest {
 	class WriteFeatureTest {
 		@Test
 		void null_shouldThrow() throws Exception {
-			assertThrows(Throwable.class, () -> fs.writeFeature(null, null));
+			assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.writeFeature(null, null));
 
 		}
 
@@ -655,7 +652,7 @@ public class FeatureServiceTest {
 			Assertions.assertThat(json.keys()).toIterable().containsOnly("id");
 
 			Object idJson = json.get("id");
-			Assertions.assertThat(idJson).isNotNull().hasToString("g:a:v");
+			Assertions.assertThat(idJson).hasToString("g:a:v");
 
 		}
 
@@ -671,7 +668,7 @@ public class FeatureServiceTest {
 			Assertions.assertThat(json.keys()).toIterable().containsOnly("id");
 
 			Object idJson = json.get("id");
-			Assertions.assertThat(idJson).isNotNull().hasToString("g:a:t:c:v");
+			Assertions.assertThat(idJson).hasToString("g:a:t:c:v");
 
 		}
 
@@ -687,7 +684,7 @@ public class FeatureServiceTest {
 			Assertions.assertThat(json.keys()).toIterable().containsOnly("id");
 
 			Object idJson = json.get("id");
-			Assertions.assertThat(idJson).isNotNull().hasToString("g:a:t:v");
+			Assertions.assertThat(idJson).hasToString("g:a:t:v");
 
 		}
 

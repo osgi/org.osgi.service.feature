@@ -1,6 +1,7 @@
 package org.osgi.test.cases.feature.junit;
 
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.osgi.test.cases.feature.assertj.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
@@ -70,80 +71,73 @@ public class FeatureIDTest {
 	@Test
 	void getID3_shouldFail() throws Exception {
 
-		assertThrows(Throwable.class, () -> fs.getID(null, null, null));
-		assertThrows(Throwable.class, () -> fs.getID("", "", ""));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", null));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", ""));
-		assertThrows(Throwable.class, () -> fs.getID("g", null, "v"));
-		assertThrows(Throwable.class, () -> fs.getID("g", "", "v"));
-		assertThrows(Throwable.class, () -> fs.getID(null, "a", "v"));
-		assertThrows(Throwable.class, () -> fs.getID("", "a", "v"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(null, null, null));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("", "", ""));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", null));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", ""));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", null, "v"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "", "v"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(null, "a", "v"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("", "a", "v"));
 
 	}
 
 	@Test
 	void getID4_shouldFail() throws Exception {
-		assertThrows(Throwable.class, () -> fs.getID(null, null, null, null));
-		assertThrows(Throwable.class, () -> fs.getID("", "", "", ""));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(null, null, null, null));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("", "", "", ""));
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "v", ""));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "v", null));// <--
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", ""));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", null));// <--
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "", "t"));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", null, "t"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "", "t"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", null, "t"));
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "", "v", "t"));
-		assertThrows(Throwable.class, () -> fs.getID("g", null, "v", "t"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "", "v", "t"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", null, "v", "t"));
 
-		assertThrows(Throwable.class, () -> fs.getID("", "a", "v", "t"));
-		assertThrows(Throwable.class, () -> fs.getID(null, "a", "v", "t"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("", "a", "v", "t"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(null, "a", "v", "t"));
 	}
 
 	@Test
 	void getID5_shouldFail() throws Exception {
-		assertThrows(Throwable.class,
-				() -> fs.getID(null, null, null, null, null));
-		assertThrows(Throwable.class, () -> fs.getID("", "", "", "", ""));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(null, null, null, null, null));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("", "", "", "", ""));
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "v", "t", ""));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "v", "t", null));// <--
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", "t", ""));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", "t", null));// <--
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "v", "", "c"));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "v", null, "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", "", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", null, "c"));
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", "", "t", "c"));
-		assertThrows(Throwable.class, () -> fs.getID("g", "a", null, "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", null, "t", "c"));
 
-		assertThrows(Throwable.class, () -> fs.getID("g", "", "v", "t", "c"));
-		assertThrows(Throwable.class, () -> fs.getID("g", null, "v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "", "v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", null, "v", "t", "c"));
 
-		assertThrows(Throwable.class, () -> fs.getID("", "a", "v", "t", "c"));
-		assertThrows(Throwable.class, () -> fs.getID(null, "a", "v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("", "a", "v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(null, "a", "v", "t", "c"));
 
-		assertThrows(Throwable.class,
-				() -> fs.getID("g", "a", "v", null, null));// <--
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", null, null));// <--
 
 	}
 
 	@Test
 	void getIDX_shouldFail_NOT_SPECIFIED() throws Exception {
 
-		assertThrows(Throwable.class,
-				() -> fs.getID("g", "a", "v", "t", "c:c"));
-		assertThrows(Throwable.class,
-				() -> fs.getID("g", "a", "v", "t:t", "c"));
-		assertThrows(Throwable.class,
-				() -> fs.getID("g", "a", "v:v", "t", "c"));
-		assertThrows(Throwable.class,
-				() -> fs.getID("g", "a:a", "v", "t", "c"));
-		assertThrows(Throwable.class,
-				() -> fs.getID("g:g", "a", "v", "t", "c"));
-		assertThrows(Throwable.class, () -> fs.getID(":", ":", ":", ":", ":"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", "t", "c:c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v", "t:t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a", "v:v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g", "a:a", "v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID("g:g", "a", "v", "t", "c"));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getID(":", ":", ":", ":", ":"));
 
 	}
 
 	void getIDfromMavenCoordinate_null_shouldFail() throws Exception {
-		assertThrows(Throwable.class, () -> fs.getIDfromMavenCoordinates(null));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getIDfromMavenCoordinates(null));
 	}
 
 	// same source as
@@ -166,8 +160,7 @@ public class FeatureIDTest {
 	void getIDfromMavenCoordinates_shouldFail(String wrongCoordinates)
 			throws Exception {
 
-		assertThrows(Throwable.class,
-				() -> fs.getIDfromMavenCoordinates(wrongCoordinates));
+		assertThatExceptionOfType(Throwable.class).isThrownBy(() -> fs.getIDfromMavenCoordinates(wrongCoordinates));
 
 
 	}
