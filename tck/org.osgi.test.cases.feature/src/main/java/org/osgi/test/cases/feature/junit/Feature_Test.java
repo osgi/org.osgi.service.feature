@@ -1,6 +1,7 @@
 package org.osgi.test.cases.feature.junit;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.Mockito.mock;
 import static org.osgi.test.cases.feature.assertj.Assertions.assertThat;
 
@@ -45,7 +46,6 @@ public class Feature_Test {
 
 			assertThat(createFeatureBuilderGAV(fs).build())
 					.hasConfigurationsThat()
-					.isNotNull()
 					.isEmpty();
 
 		}
@@ -55,7 +55,6 @@ public class Feature_Test {
 		void Feature_Extensions_isNotNull() throws Exception {
 
 			assertThat(createFeatureBuilderGAV(fs).build()).hasExtensionsThat()
-					.isNotNull()
 					.isEmpty();
 
 		}
@@ -65,7 +64,6 @@ public class Feature_Test {
 		void Feature_Variables_isNotNull() throws Exception {
 
 			assertThat(createFeatureBuilderGAV(fs).build()).hasVariablesThat()
-					.isNotNull()
 					.isEmpty();
 
 		}
@@ -75,7 +73,6 @@ public class Feature_Test {
 		void Feature_Bundles_isNotNull() throws Exception {
 
 			assertThat(createFeatureBuilderGAV(fs).build()).hasBundlesThat()
-					.isNotNull()
 					.isEmpty();
 
 		}
@@ -98,21 +95,21 @@ public class Feature_Test {
 			FeatureBundle fbundle = fbb.build();
 			fb.addBundles(fbundle);
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				fbundle.getMetadata().put("k", "v");
 			});
 
 			Feature feature = fb.build();
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				feature.getBundles().add(fbundle);
 			});
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				feature.getBundles().add(1, fbundle);
 			});
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				feature.getBundles().get(0).getMetadata().put("k", "v");
 			});
 
@@ -123,7 +120,7 @@ public class Feature_Test {
 		void feature_extensions_immutable() throws Exception {
 			Feature feature = createFeatureBuilderGAV(fs).build();
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				feature.getExtensions()
 						.put("foo", mock(FeatureExtension.class));
 			});
@@ -135,7 +132,7 @@ public class Feature_Test {
 		void feature_configurations_immutable() throws Exception {
 			Feature feature = createFeatureBuilderGAV(fs).build();
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				feature.getConfigurations()
 						.put("foo", mock(FeatureConfiguration.class));
 			});
@@ -147,7 +144,7 @@ public class Feature_Test {
 		void feature_variables_immutable() throws Exception {
 			Feature feature = createFeatureBuilderGAV(fs).build();
 
-			assertThrows(UnsupportedOperationException.class, () -> {
+			assertThatExceptionOfType(UnsupportedOperationException.class).isThrownBy(() -> {
 				feature.getVariables().put("foo", "bar");
 			});
 
