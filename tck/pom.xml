@@ -14,7 +14,7 @@
 
 	<properties>
 		<asm-commons.version>5.0.3</asm-commons.version>
-		<asm.version>5.0.4</asm.version>
+		<asm.version>9.11</asm.version>
 		<assertj.version>3.23.1</assertj.version>
 		<byte-buddy.version>1.12.10</byte-buddy.version>
 		<geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
