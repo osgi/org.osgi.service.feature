@@ -14,7 +14,7 @@
 
 	<properties>
 		<asm-commons.version>5.0.3</asm-commons.version>
-		<asm.version>5.0.4</asm.version>
+		<asm.version>9.11.1</asm.version>
 		<geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
 		<johnzon-core.version>1.2.14</johnzon-core.version>
 		<org.apache.aries.spifly.dynamic.bundle.version>1.0.8</org.apache.aries.spifly.dynamic.bundle.version>
