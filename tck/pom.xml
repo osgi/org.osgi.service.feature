@@ -20,7 +20,7 @@
 		<org.apache.aries.spifly.dynamic.bundle.version>1.0.8</org.apache.aries.spifly.dynamic.bundle.version>
 		<org.apache.aries.util.version>2.0.0</org.apache.aries.util.version>
 		<org.apache.felix.cm.json.version>1.0.6</org.apache.felix.cm.json.version>
-		<org.apache.felix.feature.version>0.9.4-RC3</org.apache.felix.feature.version>
+		<org.apache.felix.feature.version>1.0.2</org.apache.felix.feature.version>
 		<org.eclipse.osgi.version>3.18.100</org.eclipse.osgi.version>
 		<org.json.version>1.0.0.v201011060100</org.json.version>
 		<org.osgi.framework.version>1.10.0</org.osgi.framework.version>
